@@ -1,0 +1,36 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    certmanager.k8s.io/acme-challenge-type: http01
+    certmanager.k8s.io/issuer: letsencrypt
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "300"
+    nginx.ingress.kubernetes.io/proxy-buffer-size: "16k"
+    nginx.ingress.kubernetes.io/proxy-buffers-number: "4"
+  name: ingress-web-main
+  namespace: default
+spec:
+  ingressClassName: nginx  
+  rules:
+  - host: universitynebulae.com.co
+    http:
+      paths:  
+      - backend:
+          service:
+            name: frontend-emi
+            port:
+              number: 80
+        path: /
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: frontend-emi
+            port:
+              number: 80
+        path: /emi
+        pathType: ImplementationSpecific       
+  tls:
+      - hosts:
+        - universitynebulae.com.co
+        secretName: tls-keycloak

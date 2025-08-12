@@ -1,0 +1,14 @@
+# System Files
+*.DS_Store
+*Thumbs.db
+
+# Builds and distros
+/dist/
+
+# IDE Files
+.history/
+.vscode
+.artifacts_prepare
+.artifacts_build_frontend
+.artifacts_pack_frontend
+local-build-secrets.sh
