@@ -57,7 +57,7 @@
         "jss-extend": "6.2.0",
         "jszip": "^3.9.1",
         "jwt-decode": "2.2.0",
-        "keycloak-js": "^10.0.1",
+        "keycloak-js": "22",
         "keycode": "2.2.0",
         "lodash": "^4.17.21",
         "match-sorter": "^4.0.2",
